@@ -1,4 +1,4 @@
-# hash:sha256:2c77f860b3dce5a26d4f61d6f67c1bb1f9255cdda5b2b4256589b939e7ba33d8
+# hash:sha256:1305da30bdcff4560efcfbe4a65e41add6efadd3ebf0d60c6ebacbcd0b96a96a
 ARG REGISTRY_HOST
 FROM $REGISTRY_HOST/codeocean/pytorch:2.1.0-cuda11.8-mambaforge23.1.0-4-python3.10.12-ubuntu22.04
 
@@ -13,8 +13,8 @@ RUN apt-get update \
         build-essential=12.9ubuntu3 \
     && rm -rf /var/lib/apt/lists/*
 
-RUN pip3 install -U --no-cache-dir \
-    roicat[all]==1.2.0
+RUN pip install -U --no-cache-dir \
+    roicat[all]==1.2.2
 
 COPY postInstall /
 RUN /postInstall
