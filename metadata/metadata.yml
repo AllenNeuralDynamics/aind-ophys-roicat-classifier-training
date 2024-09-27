@@ -1,2 +1,7 @@
 metadata_version: 1
 name: ROICaT Classifier Training
+description: Use ROICaT to train a classifier on top of ROInet.
+authors:
+- name: David Feng
+- name: Rich Hakim
+- name: Johannes Friedrich
