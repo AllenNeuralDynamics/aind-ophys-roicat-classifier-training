@@ -19,6 +19,9 @@
 		"pip": {
 			"packages": [
 				{
+					"name": "pint"
+				},
+				{
 					"name": "roicat[all]",
 					"version": "1.4.4"
 				}
