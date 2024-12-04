@@ -1,6 +1,6 @@
-# hash:sha256:1305da30bdcff4560efcfbe4a65e41add6efadd3ebf0d60c6ebacbcd0b96a96a
+# hash:sha256:1825ccbe85bb962664aed1fa9aed6c113cd718bd490f5ee39d5dbb7ef1a60669
 ARG REGISTRY_HOST
-FROM $REGISTRY_HOST/codeocean/pytorch:2.1.0-cuda11.8-mambaforge23.1.0-4-python3.10.12-ubuntu22.04
+FROM $REGISTRY_HOST/codeocean/pytorch:2.4.0-cuda12.4.0-mambaforge24.5.0-0-python3.12.4-ubuntu22.04
 
 ARG DEBIAN_FRONTEND=noninteractive
 
@@ -14,7 +14,7 @@ RUN apt-get update \
     && rm -rf /var/lib/apt/lists/*
 
 RUN pip install -U --no-cache-dir \
-    roicat[all]==1.2.2
+    roicat[all]==1.4.4
 
 COPY postInstall /
 RUN /postInstall

@@ -9,6 +9,7 @@ from pint import UnitRegistry
 import numpy as np
 import logging
 from typing import List
+import pint
 
 
 @dataclass
@@ -57,7 +58,7 @@ def load_session_planes(session_dir, default_um_per_px=0.78):
                 extraction.um_per_px = 0.78
 
             try:
-                extraction_file = next(plane_dir.glob("**/extraction.h5"))            
+                extraction_file = next(plane_dir.glob("**/*extraction.h5"))            
                 extraction.rois = get_rois_from_extraction_h5(extraction_file)    
             except StopIteration as e:
                 try:
