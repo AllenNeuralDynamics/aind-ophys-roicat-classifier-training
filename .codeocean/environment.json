@@ -19,7 +19,8 @@
 		"pip": {
 			"packages": [
 				{
-					"name": "pint"
+					"name": "pint",
+					"version": "0.24.4"
 				},
 				{
 					"name": "roicat[all]",
