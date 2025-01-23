@@ -14,6 +14,7 @@ import pint
 
 @dataclass
 class ExtractionData:
+    location: str = None
     plane_name: str = None
     dims: List[int] = None
     rois: np.array = None
@@ -49,7 +50,7 @@ def load_session_planes(session_dir, default_um_per_px=0.78):
         plane_dir = session_dir / plane_name
         if plane_dir.is_dir() and plane_dir.parts[-1] != 'nextflow': 
             
-            extraction = ExtractionData(plane_name=plane_name)            
+            extraction = ExtractionData(plane_name=plane_name, location=plane_dir)            
             
             try:
                 session_file = next(session_dir.glob("session.json"))            
