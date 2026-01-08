@@ -48,14 +48,14 @@ def load_session_planes(session_dir, default_um_per_px=0.78):
     
     for plane_name in sorted(os.listdir(session_dir)):
         plane_dir = session_dir / plane_name
-        if plane_dir.is_dir() and plane_dir.parts[-1] != 'nextflow': 
-            
+        if plane_dir.is_dir() and plane_dir.parts[-1] != 'nextflow' and not plane_dir.suffix == '.nwb':
             extraction = ExtractionData(plane_name=plane_name, location=plane_dir)            
             
             try:
                 session_file = next(session_dir.glob("session.json"))            
                 extraction.um_per_px, extraction.dims = get_plane_metadata(session_file)
             except StopIteration as e:
+                logging.warning(f"using default um_per_px (0.78) for {plane_dir}")
                 extraction.um_per_px = 0.78
 
             try:
